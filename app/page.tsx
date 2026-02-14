@@ -1,6 +1,10 @@
+import { Box } from "@/styled-system/jsx";
+
 
 export default function Home() {
   return (
-    <h1>ckođ</h1>
+    <Box>
+      <h1>Hello World</h1>
+    </Box>
   );
 }
