@@ -19,6 +19,10 @@ export function MainButton({ children, size = "sm" }: MainButtonProps) {
         alignItems: "center",
         gap: "8px",
         justifyContent: "center",
+        transition: "background 0.3s",
+        "&:hover": {
+          background: "#00D8DB",
+        }
       })}
     >
       {children}

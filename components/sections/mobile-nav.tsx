@@ -4,14 +4,24 @@ import { Box } from "@/styled-system/jsx";
 import { CodeXml, Github, Linkedin, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { MainButton } from "../buttons/main-button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <nav
       className={css({
         paddingY: "25px",
-        position: "relative",
+        paddingX: "50px",
+        position: { base: "fixed", lg: "relative" },
         top: 0,
         left: 0,
         right: 0,
@@ -20,6 +30,9 @@ export default function MobileNav() {
         justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
+        background: scrolled ? "rgba(2, 6, 24, 0.7)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        transition: "background 0.3s, backdrop-filter 0.3s",
       })}
     >
       <Box css={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -117,10 +130,10 @@ export default function MobileNav() {
           }}
           style={{ gap: "12px" }}
         >
-          <Link href="https://github.com/Hrvoje1307">
+          <Link href="https://github.com/Hrvoje1307" target="_blank">
             <Github />
           </Link>
-          <Link href="https://www.linkedin.com/in/hrvoje-%C4%8Du%C4%8Dkovi%C4%87-061a1b211/">
+          <Link href="https://www.linkedin.com/in/hrvoje-%C4%8Du%C4%8Dkovi%C4%87-061a1b211/" target="_blank">
             <Linkedin />
           </Link>
           <MainButton size="sm">Let&apos;s talk</MainButton>

@@ -1,14 +1,26 @@
+"use client";
 import { css } from "@/styled-system/css";
 import { Box } from "@/styled-system/jsx";
 import { CodeXml, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { MainButton } from "../buttons/main-button";
+import { useEffect, useState } from "react";
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <nav
       className={css({
         paddingY: "25px",
-        position: "fixed",
+        position: { base: "absolute", lg: "fixed" },
         paddingX: "50px",
         top: 0,
         left: 0,
@@ -17,6 +29,10 @@ export default function Navigation() {
         justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
+        zIndex: 9999,
+        background: scrolled ? "rgba(2, 6, 24, 0.7)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        transition: "background 0.3s, backdrop-filter 0.3s",
       })}
     >
       <Box css={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -43,11 +59,21 @@ export default function Navigation() {
       </Box>
       <Box css={{ color: "#90A1B9", display: "flex", gap: "60px" }}>
         <Box css={{ display: "flex", gap: "25px", alignItems: "center" }}>
-          <Link href="#">About</Link>
-          <Link href="#">Tech Stack</Link>
-          <Link href="#">Experience</Link>
-          <Link href="#">Projects</Link>
-          <Link href="#">Contact</Link>
+          <Link href="#" className={css({ "&:hover": { color: "#fff" } })}>
+            About
+          </Link>
+          <Link href="#" className={css({ "&:hover": { color: "#fff" } })}>
+            Tech Stack
+          </Link>
+          <Link href="#" className={css({ "&:hover": { color: "#fff" } })}>
+            Experience
+          </Link>
+          <Link href="#" className={css({ "&:hover": { color: "#fff" } })}>
+            Projects
+          </Link>
+          <Link href="#" className={css({ "&:hover": { color: "#fff" } })}>
+            Contact
+          </Link>
         </Box>
         <Box
           css={{
@@ -57,10 +83,18 @@ export default function Navigation() {
           }}
           style={{ gap: "12px" }}
         >
-          <Link href="https://github.com/Hrvoje1307">
+          <Link
+            href="https://github.com/Hrvoje1307"
+            target="_blank"
+            className={css({ "&:hover": { color: "#fff" } })}
+          >
             <Github />
           </Link>
-          <Link href="https://www.linkedin.com/in/hrvoje-%C4%8Du%C4%8Dkovi%C4%87-061a1b211/">
+          <Link
+            href="https://www.linkedin.com/in/hrvoje-%C4%8Du%C4%8Dkovi%C4%87-061a1b211/"
+            target="_blank"
+            className={css({ "&:hover": { color: "#fff" } })}
+          >
             <Linkedin />
           </Link>
           <MainButton size="sm">Let&apos;s talk</MainButton>
