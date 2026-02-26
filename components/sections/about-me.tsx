@@ -36,24 +36,24 @@ export default function AboutMe() {
       <Box css={{ width: { base: "100%", lg: "49%" } }}>
         <h1
           className={css({
-            color: "#fff",
-            fontSize: "48px",
+            background: "linear-gradient(90deg, #FFF 0%, #90A1B9 100%)",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            fontSize: { base: "30px", md: "48px" },
             fontWeight: "700",
-            position: "relative",
-            marginBottom: "90px",
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              left: 0,
-              bottom: "-10px",
+            marginBottom: "20px",
+          })}
+        >
+          About Me
+          <Box
+            css={{
               width: "80px",
               height: "4px",
               background: "#00B8DB",
               borderRadius: "2px",
-            },
-          })}
-        >
-          About Me
+              marginTop: "10px",
+            }}
+          ></Box>
         </h1>
         <p
           className={css({

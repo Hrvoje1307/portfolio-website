@@ -26,19 +26,10 @@ export default function Technologies() {
     <Box>
       <Box
         css={{
-          position: "relative",
           marginBottom: "60px",
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            width: "80px",
-            height: "4px",
-            borderRadius: "16777200px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            bottom: "-20px",
-            background: "#00B8DB",
-          },
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <h1
@@ -47,7 +38,7 @@ export default function Technologies() {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             textAlign: "center",
-            fontSize: {base:"30px", md:"48px"},
+            fontSize: { base: "30px", md: "48px" },
             fontWeight: "700",
           })}
         >
@@ -64,9 +55,28 @@ export default function Technologies() {
         >
           My preferred stack for building scalable applications
         </p>
+        <Box
+          css={{
+            width: "80px",
+            height: "4px",
+            background: "#00B8DB",
+            borderRadius: "2px",
+            marginTop: "20px",
+          }}
+        ></Box>
       </Box>
 
-      <Box css={{display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"center", gap:"24px", paddingBottom:"80px", paddingX:"20px"}}>
+      <Box
+        css={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "24px",
+          paddingBottom: "80px",
+          paddingX: "20px",
+        }}
+      >
         {technologies.map((tech) => (
           <ListItem
             key={tech.title}
