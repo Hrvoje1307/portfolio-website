@@ -1,6 +1,7 @@
 import AboutMe from "@/components/sections/about-me";
 import Experience from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero-section";
+import Projects from "@/components/sections/projects";
 import Technologies from "@/components/sections/technologies";
 import { Box } from "@/styled-system/jsx";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutMe />
       <Technologies />
       <Experience />
+      <Projects />
     </Box>
   );
 }

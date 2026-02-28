@@ -1,6 +1,6 @@
 import { Box } from "@/styled-system/jsx";
 import ExperienceCard from "../cards/experience-card";
-import { css } from "@/styled-system/css/css";
+import HeadingSection from "./heading-section";
 
 export default function Experience() {
   return (
@@ -9,40 +9,10 @@ export default function Experience() {
         paddingBottom: "60px",
       }}
     >
-      <Box css={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-        <h1
-          className={css({
-            background: "linear-gradient(90deg, #FFF 0%, #90A1B9 100%)",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textAlign: "center",
-            fontSize: { base: "30px", md: "48px" },
-            fontWeight: "700",
-          })}
-        >
-          Professional Experience
-        </h1>
-        <p
-          className={css({
-            color: "#90A1B9",
-            textAlign: "center",
-            fontSize: { base: "16px", md: "18px" },
-            marginTop: "10px",
-            fontWeight: "400",
-          })}
-        >
-          My journey in tech industry
-        </p>
-        <Box
-          css={{
-            width: "80px",
-            height: "4px",
-            background: "#00B8DB",
-            borderRadius: "2px",
-            marginTop: "20px",
-          }}
-        ></Box>
-      </Box>
+      <HeadingSection
+        title="Professional Experience"
+        subtitle="My journey in the tech industry"
+      />
 
       <Box
         css={{

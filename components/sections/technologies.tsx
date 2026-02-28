@@ -2,6 +2,7 @@ import { Box } from "@/styled-system/jsx";
 import { ListItem } from "../cards/list-item";
 import { Code, Palette, Terminal } from "lucide-react";
 import { css } from "@/styled-system/css";
+import HeadingSection from "./heading-section";
 
 const technologies = [
   {
@@ -24,47 +25,7 @@ const technologies = [
 export default function Technologies() {
   return (
     <Box>
-      <Box
-        css={{
-          marginBottom: "60px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h1
-          className={css({
-            background: "linear-gradient(90deg, #FFF 0%, #90A1B9 100%)",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textAlign: "center",
-            fontSize: { base: "30px", md: "48px" },
-            fontWeight: "700",
-          })}
-        >
-          Technologies & Tools
-        </h1>
-        <p
-          className={css({
-            textAlign: "center",
-            color: "#90A1B9",
-            fontSize: "18px",
-            fontWeight: "400",
-            lineHeight: "28px",
-          })}
-        >
-          My preferred stack for building scalable applications
-        </p>
-        <Box
-          css={{
-            width: "80px",
-            height: "4px",
-            background: "#00B8DB",
-            borderRadius: "2px",
-            marginTop: "20px",
-          }}
-        ></Box>
-      </Box>
+      <HeadingSection title="Technologies & Tools" subtitle="My preferred stack for building scalable applications" />
 
       <Box
         css={{
